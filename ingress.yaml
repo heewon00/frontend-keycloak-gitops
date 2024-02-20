@@ -1,20 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend-keycloak-ingress
+  name: duckdns-ingress
   annotations:
-    kubernetes.io/ingress.class: “nginx”
-    ingress.kubernetes.io/rewrite-target: /
-    ingressclass.kubernetes.io/is-default-class: “true”
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+    - frontend-keycloak-ssl.kthw.duckdns.org
+    secretName: edu-tls
   rules:
-    - host: frontend-keycloak.211.43.12.210.nip.io:31860
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: frontend
-                port:
-                  number: 80
+  - host: frontend-keycloak-ssl.kthw.duckdns.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
