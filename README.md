@@ -1,2 +1,1 @@
-# frontend-gitops
-frontend ( vue 3.x )
+# frontend-keycloak-gitops & backend-keycloak-gitops
