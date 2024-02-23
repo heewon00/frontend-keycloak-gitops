@@ -1,14 +1,31 @@
+# apiVersion: route.openshift.io/v1
+# kind: Route
+# metadata:
+#   name: frontend
+# spec:
+#   host: frontend-edu30.apps.okd4.ktdemo.duckdns.org
+#   port:
+#     targetPort: 80
+# #  tls:
+# #    insecureEdgeTerminationPolicy: Redirect
+# #    termination: passthrough
+#   to:
+#     kind: Service
+#     name: frontend
+#     weight: 100    
+#   wildcardPolicy: None  
+
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: frontend
 spec:
-  host: frontend-edu30.apps.okd4.ktdemo.duckdns.org
+  host: frontend-edu3.apps.okd4.ktdemo.duckdns.org
   port:
     targetPort: 80
-#  tls:
-#    insecureEdgeTerminationPolicy: Redirect
-#    termination: passthrough
+  tls:
+    insecureEdgeTerminationPolicy: Allow
+    termination: edge
   to:
     kind: Service
     name: frontend
