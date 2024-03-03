@@ -19,6 +19,7 @@ spec:
         # v1: http(edu 오류)
         # v2: http
         # v3: ssl 인증 (https)
+        # v4: http (211.43.12.210 keycloak)
         imagePullPolicy: Always
         env:
           - name: SPRING_PROFILES_ACTIVE
